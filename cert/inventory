@@ -1,0 +1,7 @@
+#[all]
+#localhost ansible_host=localhost ansible_user=root
+
+[all:vars]
+GITHUB_TOKEN=6237073df45ef18ef3d8575a7abe520dcd1ed2ce
+OPERATOR_NAME=ibm-spectrum-scale-csi-operator
+OPERATOR_DIR=stable/ibm-spectrum-scale-csi-operator-bundle/operators/ibm-spectrum-scale-csi-operator
