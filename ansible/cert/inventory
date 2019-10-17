@@ -8,7 +8,7 @@ GITHUB_TOKEN=6237073df45ef18ef3d8575a7abe520dcd1ed2ce
 # Operator details.
 OPERATOR_NAME=ibm-spectrum-scale-csi-operator
 OPERATOR_VERSION=0.0.1
-OPERATOR_DIR=stable/ibm-spectrum-scale-csi-operator-bundle/operators/ibm-spectrum-scale-csi-operator
+OPERATOR_DIR=../stable/ibm-spectrum-scale-csi-operator-bundle/operators/ibm-spectrum-scale-csi-operator
 
 # Assumed to be in the "deploy" directory.
 ADDITIONAL_RESOURCES=["service_account.yaml", "role_binding.yaml"]
