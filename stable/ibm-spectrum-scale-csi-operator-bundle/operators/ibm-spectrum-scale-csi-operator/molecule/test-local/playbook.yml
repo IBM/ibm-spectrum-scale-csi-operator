@@ -13,6 +13,17 @@
   - name: Check if CI
     set_fact:
       CI: lookup('env', 'CI')
+
+  - debug:
+      msg: "{{ environment | to_nice_json }} "
+
+  - name: Print OS data
+    shell: " ls -ltra /usr/local/share/ca-certificates"
+    register: dOut
+
+  - debug: var=dOut.stdout_lines
+  - debug: var=dOut.stderr_lines
+
     
   - name: Build Operator Image
     command: docker build -f /build/build/Dockerfile -t {{ image_name }} /build
@@ -74,6 +85,8 @@
       - "'Successful' in (cr | json_query('resources[].status.conditions[].reason'))"
       delay: 6
       retries: 10
+
+
     rescue:
     - name: debug cr
       ignore_errors: yes
@@ -127,6 +140,7 @@
 
     - fail:
         msg: "Failed on action: converge"
+  - include_tasks: '{{ playbook_dir }}/../default/tests/basic_tests.yaml'
 
 - import_playbook: '{{ playbook_dir }}/../default/asserts.yml'
 
