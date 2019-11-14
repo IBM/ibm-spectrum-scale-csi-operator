@@ -31,6 +31,11 @@
 - debug: var=ocOut.stdout_lines
 - debug: var=ocOut.stderr_lines
 
+- name: Package the operator
+  shell: "python hacks/package_operator.py"
+  args:
+    chdir: "{{OPERATOR_DIR}}"
+
 - name: Run 'operator-sdk' scorecard
   shell: "GO111MODULE=on operator-sdk scorecard {{SC_VARS}}"
   register: scOut
