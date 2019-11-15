@@ -14,17 +14,6 @@
     set_fact:
       CI: lookup('env', 'CI')
 
-  - debug:
-      msg: "{{ environment | to_nice_json }} "
-
-  - name: Print OS data
-    shell: " ls -ltra /usr/local/share/ca-certificates"
-    register: dOut
-
-  - debug: var=dOut.stdout_lines
-  - debug: var=dOut.stderr_lines
-
-    
   - name: Build Operator Image
     command: docker build -f /build/build/Dockerfile -t {{ image_name }} /build
     register: build_cmd
