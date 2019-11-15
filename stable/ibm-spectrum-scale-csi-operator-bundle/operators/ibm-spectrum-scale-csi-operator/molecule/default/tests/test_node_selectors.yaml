@@ -10,9 +10,15 @@
 # Should this be computed?
 - name: Set attacher variables
   set_fact:
-    attacherNodeSelector: { "key" : node1, "value" : infra1 }
-    provisionerNodeSelector: { "key" : node2, "value" : infra1 }
-    pluginNodeSelector: { "key" : node3, "value" : infra1 }
+    attacherNodeSelector: 
+      key:  node1
+      value: infra1
+    provisionerNodeSelector:
+      key:  node2
+      value: infra1
+    pluginNodeSelector:
+      key:  node3
+      value: infra1
     #nodeMapping:  
 
 
