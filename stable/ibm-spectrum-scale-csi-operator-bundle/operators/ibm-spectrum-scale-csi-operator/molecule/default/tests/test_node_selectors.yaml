@@ -19,7 +19,6 @@
     pluginNodeSelector:
       key:  node3
       value: infra1
-    #nodeMapping:  
 
 - name: Update Custom Resource to have attacher fields
   k8s:
@@ -37,45 +36,41 @@
         pluginNodeSelector:  
           - "{{ pluginNodeSelector }}"
 
-#- name : Lookup Pods
-#  ignore_errors: yes
-#  failed_when: false
-#  debug:
-#    var: deploy
-#  vars:
-#    deploy: '{{ lookup("k8s",
-#      kind="pods",
-#      namespace=namespace
-#    )}}'
 - block:
     # We know that the provisioner will have this name
     - name: Wait 60s for provisioner reconciliation to run 
       k8s_facts:
-        kind:       Pod
+        kind:       Statefulset
         api_version: v1
         namespace:  '{{ namespace }}'
-        name: "{{custom_resource.metadata.name}}-provisioner-0" # In the default config this is the provisioner name
+        name: "{{custom_resource.metadata.name}}-provisioner"
       register: provisioner
       until: 
-        -  ( provisioner | json_query('resources[].spec.containers[].nodeSelector')) is defined
+        -  ( provisioner | json_query('resources[].spec.template.spec.containers[].nodeSelector')) is defined
       delay: 6
       retries: 10
 
     - name: Wait 60s for attacher reconciliation to run 
       k8s_facts:
-        kind:       Pod
+        kind:        Statefulset
         api_version: v1
         namespace:  '{{ namespace }}'
-        name: "{{custom_resource.metadata.name}}-attacher-0" # In the default config this is the attacher name.
+        name: "{{custom_resource.metadata.name}}-attacher"
+      register: attacher
       until:
-        -  ( provisioner | json_query('resources[].spec.containers[].nodeSelector')) is defined
+        -  ( attacher | json_query('resources[].spec.template.spec.containers[].nodeSelector')) is defined
       delay: 6
       retries: 10
 
-#  - name: Wait 60s for plugin reconciliation to run
-  # We need to scan the pods for the various keys, how can we do this?
-  # Right now there's no great way to figure this out?
-  
-  #  fail:
-  #    msg: "Selectors failed to be processed."
+    - name: Wait 60s for driver reconciliation to run 
+      k8s_facts:
+        kind:       Daemonset
+        api_version: v1
+        namespace:  '{{ namespace }}'
+        name: "{{custom_resource.metadata.name}}"
+      register: driver
+      until:
+        -  ( driver| json_query('resources[].spec.template.spec.containers[].nodeSelector')) is defined
+      delay: 6
+      retries: 10
 
