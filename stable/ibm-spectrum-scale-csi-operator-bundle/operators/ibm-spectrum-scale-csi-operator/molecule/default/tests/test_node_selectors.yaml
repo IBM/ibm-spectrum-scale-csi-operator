@@ -19,6 +19,9 @@
     pluginNodeSelector:
       key:  node3
       value: infra1
+    nodeMapping:
+      k8sNode: node1
+      spectrumscaleNode: scale1
 
 - name: Update Custom Resource to have attacher fields
   k8s:
@@ -35,6 +38,8 @@
           - "{{ provisionerNodeSelector }}" 
         pluginNodeSelector:  
           - "{{ pluginNodeSelector }}"
+        nodeMapping:
+          - "{{ nodeMapping }}"
 
 - block:
     # We know that the provisioner will have this name
@@ -71,6 +76,7 @@
       register: driver
       until:
         -  ( driver| json_query('resources[].spec.template.spec.containers[].nodeSelector')) is defined
+        -  (driver | json_query('resources[].spec.template.spec.containers[].env[*][?name==`nodeMapping.k8sNode` && value==`nodeMapping.spectrumscaleNode`]')) is defined
       delay: 6
       retries: 10
 
