@@ -10,7 +10,6 @@
 # Should this be computed?
 - name: Set attacher variables
   set_fact:
-    resource: "{{cr.resources[0]}}"
     attacherNodeSelector: 
       key:  node1
       value: infra1
