@@ -15,4 +15,4 @@
   tasks:
     
     - name: Run tests
-      include_tasks: default/tests/basic_tests.yaml
+      include_tasks: ../default/tests/basic_tests.yaml
