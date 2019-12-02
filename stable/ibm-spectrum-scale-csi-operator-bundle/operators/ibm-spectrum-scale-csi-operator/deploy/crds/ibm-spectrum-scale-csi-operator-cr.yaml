@@ -5,8 +5,8 @@ metadata:
     app.kubernetes.io/instance: ssco-custom-resource
     app.kubernetes.io/managed-by: operator
     app.kubernetes.io/name: spectrum-scale-csi-operator
-    name: 'ibm-spectrum-scale-csi'
-    namespace: 'ibm-spectrum-scale-csi-driver'
+  name: 'ibm-spectrum-scale-csi'
+  namespace: 'ibm-spectrum-scale-csi-driver'
 status: {}
 spec:
 # OPTIONAL:
