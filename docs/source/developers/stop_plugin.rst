@@ -48,6 +48,23 @@ Remove Namespace
   # The following removes the namespace 
   kubectl delete -f deploy/namespace.yaml
 
+Security Context Constraint 
+````````````````````````````
+
+.. note:: This applies to OpenShift only.
 
 
+When uninstalling on OpenShift, the operator creates a ``SecurityContextConstraint``  named ``csiaccess``.  This allows the driver to mount files in non-default namespaces. 
 
+To verify the ``SecurityContextConstraint`` is gone:
+
+.. code-block:: bash
+
+  oc get SecurityContextConstraints csiaccess
+
+
+If you get a result from the above query, use the following to delete it. 
+
+.. code-block:: bash
+
+  oc delete SecurityContextConstraints csiaccess

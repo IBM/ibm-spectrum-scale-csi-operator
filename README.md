@@ -19,20 +19,6 @@ To get started, see our [Documentation](https://ibm-spectrum-scale-csi-operator.
 
 We welcome contributions to this project, see [Contributing](CONTRIBUTING.md) for more details.
 
-### Open Shift Considerations
-
-When uninstalling on OpenShift the operator creates a `SecurityContextConstraint`  named `csiaccess`.
-This allows the driver to mount files in non default namespaces. 
-
-To verify the `SecurityContextConstraint` is gone:
-
-``` bash
-kubectl get SecurityContextConstraints csiaccess
-
-# If you get a result:
-kubectl delete SecurityContextConstraints csiaccess
-```
-
 ## Troubleshooting
 
 See the [Troubleshooting](https://ibm-spectrum-scale-csi-operator.readthedocs.io/en/latest/troubleshoot/index.html) section for more information.
