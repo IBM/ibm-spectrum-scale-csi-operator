@@ -1,33 +1,26 @@
-Clone and Build
-===============
-
-Clone
------
+Clone Repository
+================
 
 .. warning:: This repository needs to be accessible in your ``GOPATH`` and the examples below use the ``root`` user with ``GOPATH=/root/go``.
 
 .. code-block:: bash
 
-  #
   # Set up some helpful variables
-  #
   export GOPATH="/root/go"
   export IBM_DIR="$GOPATH/src/github.com/IBM"
 
-  #
-  # Ensure the dir is present then clone.
-  #
+  # Create the directory, then clone.
   mkdir -p ${IBM_DIR}
   cd ${IBM_DIR}
   git clone https://github.com/IBM/ibm-spectrum-scale-csi-operator.git
 
 Build
------
+=====
 
 Configure Environment
-`````````````````````
+---------------------
 
-.. warning:: Playbook errors must be resolved before moving onto the next step.
+.. warning:: Use at your own risk. Playbook errors must be resolved before moving onto the next step.
 
 To *help* assist in proper configuration of the build environment, a playbook is provided.
 
@@ -37,7 +30,7 @@ To *help* assist in proper configuration of the build environment, a playbook is
 
 
 Build the the Image
-```````````````````
+-------------------
 
 .. note:: ``operator-sdk build`` requires ``docker``
 
@@ -45,9 +38,7 @@ Navigate to the operator directory and use ``operator-sdk`` command to build the
 
 .. code-block:: bash
 
-  #
   # IBM_DIR is defined in the previous step
-  #
   export OPERATOR_DIR="$IBM_DIR/ibm-spectrum-scale-csi-operator"
   cd ${OPERATOR_DIR}/stable/ibm-spectrum-scale-csi-operator-bundle/operators/ibm-spectrum-scale-csi-operator
 

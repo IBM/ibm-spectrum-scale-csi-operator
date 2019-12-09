@@ -5,4 +5,6 @@ Developers
    :maxdepth: 2
 
    clone.rst
-   deployment.rst 
+   images.rst
+   start_plugin.rst
+   stop_plugin.rst
