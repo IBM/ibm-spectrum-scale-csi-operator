@@ -7,6 +7,10 @@ An Ansible based operator to run and manage the deployment of the
 
 This project was originally generated using [operator-sdk](https://github.com/operator-framework/operator-sdk).
 
+## Report Bugs 
+
+To file issues, suggestions, new features, please use our issue tracker to open an [issue](https://github.com/IBM/ibm-spectrum-scale-csi-operator/issues).
+
 ## Getting Started and Documentation 
 
 To get started, see our [Documentation](https://ibm-spectrum-scale-csi-operator.rtfd.io/)
