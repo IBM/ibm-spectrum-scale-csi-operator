@@ -9,7 +9,11 @@ This project was originally generated using [operator-sdk](https://github.com/op
 
 ## Getting Started and Documentation 
 
-To get started, see our Documentation.[Documentation](http://ibm-spectrum-scale-csi-operator.rtfd.io/)
+To get started, see our [Documentation](https://ibm-spectrum-scale-csi-operator.rtfd.io/)
+
+## Contributing
+
+We welcome contributions to this project, see [Contributing](CONTRIBUTING.md) for more details.
 
 ### Using the image
 
