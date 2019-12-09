@@ -7,49 +7,9 @@ An Ansible based operator to run and manage the deployment of the
 
 This project was originally generated using [operator-sdk](https://github.com/operator-framework/operator-sdk).
 
-> **WARNING**: This repository undergoing active development! If you encounter issues with the following instructions, [_please open an issue_](https://github.com/IBM/ibm-spectrum-scale-csi-operator/issues).
+## Getting Started and Documentation 
 
-## Setup from scratch
-
-### Cloning the repository
-
-> **WARNING**: This repository needs to be accessible in your `GOPATH`. In testing, the root user was used and set to: `GOPATH=/root/go`.
-
-> **NOTE**: Due to current constraints in golang (relative paths are not supported in golang), you **_MUST_** clone this repository under your gopath. If not, the `operator-sdk` build operation will fail.
-
-``` bash
-# Set up some helpful variables
-export GOPATH="/root/go"
-export IBM_DIR="$GOPATH/src/github.com/IBM"
-
-# Ensure the dir is present then clone.
-mkdir -p ${IBM_DIR}
-cd ${IBM_DIR}
-git clone https://github.com/IBM/ibm-spectrum-scale-csi-operator.git
-```
-
-### Development environment setup
-
-To help configure and resolve dependencies to build the csi-operator, a ansible playbook is provided.  You can run the following to invoke the playbook:
-
-``` bash
-ansible-playbook $GOPATH/src/github.com/IBM/ibm-spectrum-scale-csi-operator/ansible/dev-env-playbook.yaml
-```
-
-### Building the image
-
-To build the image the user must navigate to the operator directory (This directory structure is an artifact of the IBM Cloud Pak certification process). 
-
-``` bash
-# IBM_DIR is defined in the previous step
-export OPERATOR_DIR="$IBM_DIR/ibm-spectrum-scale-csi-operator"
-cd ${OPERATOR_DIR}/stable/ibm-spectrum-scale-csi-operator-bundle/operators/ibm-spectrum-scale-csi-operator
-
-export GO111MODULE="on"
-operator-sdk build csi-scale-operator
-```
-
->**NOTE** This requires `docker`.
+To get started, see our Documentation.[Documentation](http://ibm-spectrum-scale-csi-operator.rtfd.io/)
 
 ### Using the image
 
