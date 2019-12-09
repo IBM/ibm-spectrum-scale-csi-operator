@@ -69,27 +69,6 @@ kubectl apply -f deploy/operator.yaml
 
 At this point the operator is running and ready for use!
 
-### Option B: Using Operator Lifecycle Manager (OLM)
-
-> **NOTE**: This will be the prefered method.  However, work is ongoing.
-
-
-> **NOTE**: Installing OLM is out of the scope of this document, please refer to [the official documentation](https://github.com/operator-framework/operator-lifecycle-manager/blob/master/doc/install/install.md). If you're still having trouble, [this guide goes even deeper](https://github.com/operator-framework/community-operators/blob/master/docs/testing-operators.md).
-
-The following will subscribe the [quay.io](quay.io) version of the operator assuming OLM is installed.
-
-``` bash
-cd ${OPERATOR_DIR}/stable/ibm-spectrum-scale-csi-operator-bundle/operators/ibm-spectrum-scale-csi-operator
-
-kubectl apply -f deploy/olm-scripts/operator-source.yaml
-```
-> **NOTE**: Kubernetes use `kubectl` command, replace with `oc` if deploying in OpenShift.
-```
-cd ${OPERATOR_DIR}/stable/ibm-spectrum-scale-csi-operator-bundle/operators/ibm-spectrum-scale-csi-operator
-
-oc apply -f deploy/olm-scripts/operator-source-oc.yaml
-```
-
 
 ## Starting the CSI Driver
 

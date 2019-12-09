@@ -1,6 +1,10 @@
 Operator Lifecycle Manager (OLM)
 --------------------------------
 
+Install of Operator Lifecycle Manager (OLM) is outside the scope of this document.  Refer to the `official documentation <https://github.com/operator-framework/operator-lifecycle-manager/blob/master/doc/install/install.md>`_ for installation instructions. 
+
+Using OLM will subscribe to the `quay.io <https://quay.io>`_ version of the operator.
+
 .. note:: For OpenShift environments, replace ``kubectl`` with  ``oc``
 
 1. Install OLM:
