@@ -179,29 +179,8 @@ kubectl get SecurityContextConstraints csiaccess
 kubectl delete SecurityContextConstraints csiaccess
 ```
 
-### Stuck Operator
-In cases where deleting the operator `Custom Resource` fails the following recipe can be executed:
+## Troubleshooting
 
-``` bash
-# You need the proxy ro be running for this command.
-kubectl proxy &
-# This may need to be customized in OLM environments:
-NAMESPACE=ibm-spectrum-scale-csi-driver
-kubectl get csiscaleoperators -n ${NAMESPACE} -o json | jq '.spec = {"finalizers":[]}' >temp.json
-curl -k -H "Content-Type: application/json" -X PUT --data-binary @temp.json 127.0.0.1:8001/api/v1/namespaces/$NAMESPACE/finalize
-rm -f temp.json
-```
+See the [Troubleshooting](https://ibm-spectrum-scale-csi-operator.readthedocs.io/en/latest/troubleshoot/index.html) section for more information.
 
-Typically this happens when deleting the `Custom Resource Definition` before removing all of the `Custom Resources`.
-For more details on this check the following [GitHub Issue](https://github.com/operator-framework/operator-sdk/issues/2094).
-
-> **NOTE**: If the operator stops processing CR CRUD after applying this fix it's recommended that the user restart the operator pod.
-
-To restart the operator pod, the following process must be followed:
-
-``` bash
-POD_NAME="ibm-spectrum-scale-csi-driver ibm-spectrum-scale-csi-operator-"
-NAMESPACE=ibm-spectrum-scale-csi-driver
-kubectl delete -n $NAMESPACE $POD_NAME
-```
 

@@ -1,7 +1,7 @@
 Removing Stuck Operator [operator-sdk/issue/2094]
 -------------------------------------------------
 
-In cases where deleting the operators ``Custom Resource`` fails, the following can be executed:
+In cases where deleting the operators **Custom Resource** fails, the following can be executed:
 
 .. code-block:: bash
 
@@ -11,6 +11,17 @@ In cases where deleting the operators ``Custom Resource`` fails, the following c
     curl -k -H "Content-Type: application/json" -X PUT --data-binary @temp.json 127.0.0.1:8001/api/v1/namespaces/$NAMESPACE/finalize
     rm -f temp.json
 
-Typically this happens when deleting the ``Custom Resource Definition`` before removing all of the ``Custom Resources``.
+Typically this happens when deleting the **Custom Resource Definition** before removing all of the **Custom Resources**.
 
-For more details on this check the following `operator-sdk/issue/2094 <https://github.com/operator-framework/operator-sdk/issues/2094>`_.
+.. note:: If the operator stops processing CR CRUD after applying this fix, restart the operator pod.
+
+To restart the operator pod:
+
+.. code-block:: bash
+
+    POD_NAME="ibm-spectrum-scale-csi-driver ibm-spectrum-scale-csi-operator-"
+    NAMESPACE=ibm-spectrum-scale-csi-driver
+    kubectl delete -n $NAMESPACE $POD_NAME
+
+
+For more details, see: `operator-sdk/issue/2094 <https://github.com/operator-framework/operator-sdk/issues/2094>`_.
