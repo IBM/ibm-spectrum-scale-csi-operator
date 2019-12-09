@@ -22,4 +22,5 @@ Using OLM will subscribe to the `quay.io <https://quay.io>`_ version of the oper
 
     kubectl apply -f operator-source.yaml
 
+3. Log into the Console, search "IBM Spectrum Scale CSI Plugin" and Install the Operator 
 
