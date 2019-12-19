@@ -68,7 +68,7 @@ spec:
         path: provisionerNodeSelector
         x-descriptors:
         - urn:alm:descriptor:com.tectonic.ui:advanced
-      - description: Node selector for SpectrumScale CSI Plugin.
+      - description: Node selector for Spectrum Scale CSI Plugin.
         displayName: Plugin Node Selector
         path: pluginNodeSelector
         x-descriptors:
@@ -79,7 +79,7 @@ spec:
         path: clusters
         x-descriptors:
         - urn:alm:descriptor:com.tectonic.ui:advanced
-      - description: Image name for the csi spectrum scale plugin container.
+      - description: Image name for the Spectrum Scale CSI plugin container.
         displayName: Spectrum Scale Image
         path: spectrumScale
         x-descriptors:
@@ -90,17 +90,17 @@ spec:
         path: secretCounter
         x-descriptors:
         - urn:alm:descriptor:com.tectonic.ui:number
-      - description: Mapping of K8s node with SpectrumScale node.
+      - description: Mapping of K8s node with Spectrum Scale node.
         displayName: nodeMapping
         path: nodeMapping
         x-descriptors:
         - urn:alm:descriptor:com.tectonic.ui:label
-      - description: Provisioner image for csi (actually issues provision requests).
+      - description: Provisioner image for CSI (actually issues provision requests).
         displayName: Provisioner Image
         path: provisioner
         x-descriptors:
         - urn:alm:descriptor:com.tectonic.ui:label
-      - description: Sidecar container image for the csi spectrum scale plugin pods.
+      - description: Sidecar container image for the Spectrum Scale CSI plugin pods.
         displayName: Driver Registrar Image
         path: driverRegistrar
         x-descriptors:
@@ -110,7 +110,7 @@ spec:
         path: scaleHostpath
         x-descriptors:
         - urn:alm:descriptor:com.tectonic.ui:label
-      - description: Attacher image for csi (actually attaches to the storage).
+      - description: Attacher image for CSI (actually attaches to the storage).
         displayName: Attacher Image
         path: attacher
         x-descriptors:
@@ -175,7 +175,7 @@ spec:
         path: nodeMapping.k8sNode
         x-descriptors:
         - urn:alm:descriptor:com.tectonic.ui:label
-      - description: SpectrumScale node name.
+      - description: Spectrum Scale node name.
         displayName: Spectrum Scale Node
         path: nodeMapping.spectrumscaleNode
         x-descriptors:
