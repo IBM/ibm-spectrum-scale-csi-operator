@@ -1,3 +1,6 @@
+# WARNING THIS REPOSITORY HAS BEEN MOVED!
+https://github.com/IBM/ibm-spectrum-scale-csi
+
 # IBM Spectrum Scale CSI Operator
 
 [![Documentation Status](https://readthedocs.org/projects/ibm-spectrum-scale-csi-operator/badge/?version=latest)](https://ibm-spectrum-scale-csi-operator.readthedocs.io/en/latest/?badge=latest)
